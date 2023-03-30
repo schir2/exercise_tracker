@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from hold.models import ClimbingHold, ClimbingEquipment
+from hold.models import ClimbingHold, ClimbingEquipment, Exercise, ExerciseSet, Finger, ExerciseHandConfiguration, \
+    ExerciseSetHandConfiguration
 
 
 class ClimbingHoldInline(admin.TabularInline):  # You can also use admin.StackedInline for a different layout
@@ -30,3 +31,32 @@ class ClimbingHoldAdmin(admin.ModelAdmin):
     list_display = ('name', 'hold_type', 'size', 'depth', 'angle', 'climbing_equipment')
     search_fields = ('name', 'climbing_equipment__name')
     list_filter = ('hold_type',)
+
+
+class ExerciseHandConfigurationInline(admin.TabularInline):
+    model = ExerciseHandConfiguration
+    extra = 1
+    min_num = 1
+    max_num = 2
+
+
+class ExerciseSetHandConfigurationInline(admin.TabularInline):
+    model = ExerciseSetHandConfiguration
+    extra = 0
+
+
+class ExerciseAdmin(admin.ModelAdmin):
+    inlines = [ExerciseHandConfigurationInline]
+
+
+class ExerciseSetAdmin(admin.ModelAdmin):
+    inlines = [ExerciseSetHandConfigurationInline]
+
+
+class FingerAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+
+admin.site.register(Exercise, ExerciseAdmin)
+admin.site.register(ExerciseSet, ExerciseSetAdmin)
+admin.site.register(Finger, FingerAdmin)
