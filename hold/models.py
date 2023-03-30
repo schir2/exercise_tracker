@@ -1,5 +1,15 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django_measurement.models import MeasurementField
+from measurement.measures import Distance
+
+LENGTH_UNITS = [
+    ('mm', _('Millimeters')),
+    ('cm', _('Centimeters')),
+    ('m', _('Meters')),
+    ('inch', _('Inches')),
+    ('ft', _('Feet')),
+]
 
 
 class ClimbingEquipment(models.Model):
@@ -38,9 +48,11 @@ class ClimbingHold(models.Model):
 
     name = models.CharField(_('name'), max_length=100)
     hold_type = models.CharField(_('hold type'), max_length=2, choices=HOLD_TYPES)
-    size = models.FloatField(_('size'), help_text=_("Size of the edge, pocket, or other dimensions as applicable"))
-    depth = models.FloatField(_('depth'), help_text=_("Depth of the hold, if applicable"))
-    angle = models.FloatField(_('angle'), blank=True, null=True, help_text=_("Angle of the hold, if applicable"))
+    size = MeasurementField(_('size'), unit_choices=LENGTH_UNITS, measurement=Distance, blank=True, null=True,
+                            help_text=_("Size of the edge, pocket, or other dimensions as applicable"))
+    depth = MeasurementField(_('depth'), measurement=Distance, unit_choices=LENGTH_UNITS, blank=True, null=True,
+                             help_text=_("Depth of the hold, if applicable"))
+    angle = models.IntegerField(_('angle'), blank=True, null=True, help_text=_("Angle of the hold, if applicable"))
     climbing_equipment = models.ForeignKey(ClimbingEquipment, on_delete=models.CASCADE,
                                            verbose_name=_('climbing equipment'))
 
