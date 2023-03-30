@@ -24,6 +24,7 @@ class ClimbingEquipment(models.Model):
     equipment_type = models.CharField(_('equipment type'), max_length=2, choices=EQUIPMENT_TYPES)
     manufacturer = models.CharField(_('manufacturer'), max_length=100, blank=True, null=True)
     description = models.TextField(_('description'), blank=True, null=True)
+    image = models.ImageField(_('image'), upload_to='climbing_equipment/', blank=True, null=True)
 
     def __str__(self):
         return self.name

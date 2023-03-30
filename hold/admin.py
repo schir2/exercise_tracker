@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import format_html
 
 from hold.models import ClimbingHold, ClimbingEquipment
 
@@ -10,10 +11,18 @@ class ClimbingHoldInline(admin.TabularInline):  # You can also use admin.Stacked
 
 @admin.register(ClimbingEquipment)
 class ClimbingEquipmentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'equipment_type', 'manufacturer')
+    list_display = ('name', 'equipment_type', 'manufacturer', 'image_thumbnail')
+    readonly_fields = ('image_thumbnail',)
     search_fields = ('name', 'manufacturer')
     list_filter = ('equipment_type',)
     inlines = [ClimbingHoldInline]
+
+    def image_thumbnail(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" width="50" height="50" />', obj.image.url)
+        return "No Image"
+
+    image_thumbnail.short_description = 'Image'
 
 
 @admin.register(ClimbingHold)
