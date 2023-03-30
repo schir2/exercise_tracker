@@ -1,0 +1,535 @@
+[
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "user",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "hold",
+        "model": "climbingequipment"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "hold",
+        "model": "climbinghold"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "c338c2rmqd2b84ccwyim6fqmeudugt4u",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-xB8o6XMGa9e7xgHkSHFSIe4OkVJA-2bmvUSCba1p67ykicRFaHH63RDyg9sO6A7tNss8t3WZUO6KPGiX40z8vB7u30GFXr-1Ci4H5QsgaHLGUWCjbQZAq10cVI4O2WcNhuAcrVHWo-cIxcEQio3i_QHk5zfs:1phkCv:CCAdVSHZ5KhO-iMBrgvKsOlJgvupo6A_WE1A15bPw-0",
+        "expire_date": "2023-04-13T04:48:17.806Z"
+    }
+},
+{
+    "model": "hold.climbingequipment",
+    "pk": 1,
+    "fields": {
+        "name": "The Pinch",
+        "equipment_type": "PB",
+        "manufacturer": "Frictitious Climbing",
+        "description": ""
+    }
+},
+{
+    "model": "hold.climbinghold",
+    "pk": 1,
+    "fields": {
+        "name": "Shallow Pinch",
+        "hold_type": "PC",
+        "size": 3.5,
+        "depth": 20.0,
+        "angle": 0.0,
+        "climbing_equipment": 1
+    }
+},
+{
+    "model": "hold.climbinghold",
+    "pk": 2,
+    "fields": {
+        "name": "Shallow In-cut Pinch",
+        "hold_type": "PC",
+        "size": 2.5,
+        "depth": 20.0,
+        "angle": -15.0,
+        "climbing_equipment": 1
+    }
+},
+{
+    "model": "hold.climbinghold",
+    "pk": 3,
+    "fields": {
+        "name": "Extra Wide Shallow Pinch",
+        "hold_type": "PC",
+        "size": 3.5,
+        "depth": 20.0,
+        "angle": 0.0,
+        "climbing_equipment": 1
+    }
+},
+{
+    "model": "hold.climbinghold",
+    "pk": 4,
+    "fields": {
+        "name": "Deep Pinch",
+        "hold_type": "PC",
+        "size": 2.36,
+        "depth": 60.0,
+        "angle": 0.0,
+        "climbing_equipment": 1
+    }
+},
+{
+    "model": "hold.climbinghold",
+    "pk": 5,
+    "fields": {
+        "name": "Flat Crimp",
+        "hold_type": "CR",
+        "size": 0.0,
+        "depth": 20.0,
+        "angle": 0.0,
+        "climbing_equipment": 1
+    }
+},
+{
+    "model": "hold.climbinghold",
+    "pk": 6,
+    "fields": {
+        "name": "In-cut Crimp",
+        "hold_type": "CR",
+        "size": 0.0,
+        "depth": 20.0,
+        "angle": -15.0,
+        "climbing_equipment": 1
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add user",
+        "content_type": [
+            "user",
+            "user"
+        ],
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change user",
+        "content_type": [
+            "user",
+            "user"
+        ],
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete user",
+        "content_type": [
+            "user",
+            "user"
+        ],
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view user",
+        "content_type": [
+            "user",
+            "user"
+        ],
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add climbing equipment",
+        "content_type": [
+            "hold",
+            "climbingequipment"
+        ],
+        "codename": "add_climbingequipment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change climbing equipment",
+        "content_type": [
+            "hold",
+            "climbingequipment"
+        ],
+        "codename": "change_climbingequipment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete climbing equipment",
+        "content_type": [
+            "hold",
+            "climbingequipment"
+        ],
+        "codename": "delete_climbingequipment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view climbing equipment",
+        "content_type": [
+            "hold",
+            "climbingequipment"
+        ],
+        "codename": "view_climbingequipment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add climbing hold",
+        "content_type": [
+            "hold",
+            "climbinghold"
+        ],
+        "codename": "add_climbinghold"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change climbing hold",
+        "content_type": [
+            "hold",
+            "climbinghold"
+        ],
+        "codename": "change_climbinghold"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete climbing hold",
+        "content_type": [
+            "hold",
+            "climbinghold"
+        ],
+        "codename": "delete_climbinghold"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view climbing hold",
+        "content_type": [
+            "hold",
+            "climbinghold"
+        ],
+        "codename": "view_climbinghold"
+    }
+},
+{
+    "model": "user.user",
+    "fields": {
+        "password": "pbkdf2_sha256$390000$ESqoIhq5yocuYWySGZcqc9$yvk6TEjreRswYq0kkEikjOsOys7IV9XsSv/be03gaJY=",
+        "last_login": "2023-03-30T04:48:17.803Z",
+        "is_superuser": true,
+        "username": "schir2",
+        "first_name": "",
+        "last_name": "",
+        "email": "schir2@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-03-30T04:25:47.091Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2023-03-30T05:06:21.610Z",
+        "user": [
+            "schir2"
+        ],
+        "content_type": [
+            "hold",
+            "climbingequipment"
+        ],
+        "object_id": "1",
+        "object_repr": "The Pinch",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"climbing hold\", \"object\": \"Shallow Pinch\"}}, {\"added\": {\"name\": \"climbing hold\", \"object\": \"Shallow In-cut Pinch\"}}, {\"added\": {\"name\": \"climbing hold\", \"object\": \"Extra Wide Shallow Pinch\"}}, {\"added\": {\"name\": \"climbing hold\", \"object\": \"Deep Pinch\"}}, {\"added\": {\"name\": \"climbing hold\", \"object\": \"Flat Crimp\"}}, {\"added\": {\"name\": \"climbing hold\", \"object\": \"In-cut Crimp\"}}]"
+    }
+}
+]
