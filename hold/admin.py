@@ -34,17 +34,17 @@ class ClimbingHoldAdmin(admin.ModelAdmin):
 
 @admin.register(Exercise)
 class ExerciseAdmin(admin.ModelAdmin):
-    list_display = ('name', 'equipment', 'climbing_hold')
-    list_filter = ('equipment', 'climbing_hold')
-    search_fields = ('name', 'equipment__name', 'climbing_hold__name')
+    list_display = ('name', 'uses_bodyweight',)
+    search_fields = ('name',)
     ordering = ('name',)
 
 
 @admin.register(ExerciseSet)
 class ExerciseSetAdmin(admin.ModelAdmin):
-    list_display = ('exercise', 'user', 'reps', 'hold_duration', 'effort', 'total_weight')
-    list_filter = ('user', 'exercise__name')
-    search_fields = ('user__username', 'user__email', 'exercise__name')
+    list_display = ('exercise', 'user', 'equipment', 'climbing_hold', 'left_hand', 'right_hand',
+                    'reps', 'hold_duration', 'effort', 'total_weight')
+    list_filter = ('user', 'exercise__name', 'equipment__name', 'climbing_hold__name', 'effort')
+    search_fields = ('user__username', 'user__email', 'exercise__name', 'equipment__name', 'climbing_hold__name')
     ordering = ('-id',)
 
     def display_fingers(self, obj):
@@ -57,6 +57,9 @@ class ExerciseSetAdmin(admin.ModelAdmin):
     fieldsets = (
         (_('Exercise and User'), {
             'fields': ('exercise', 'user')
+        }),
+        (_('Equipment and Hold'), {
+            'fields': ('equipment', 'climbing_hold', 'left_hand', 'right_hand')
         }),
         (_('Exercise Details'), {
             'fields': ('reps', 'hold_duration', 'weight', 'effort')

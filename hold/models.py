@@ -47,7 +47,6 @@ class GripType(models.Model):
 
 
 class GripPosition(models.Model):
-
     name = models.CharField(max_length=50)
     fingers = models.ManyToManyField(Finger, related_name='grip_positions')
     grip_type = models.ForeignKey('GripType', on_delete=models.CASCADE)
@@ -114,18 +113,9 @@ class ClimbingHold(models.Model):
         verbose_name_plural = _('climbing holds')
 
 
-HAND_CHOICES = [
-    ('Left', 'Left'),
-    ('Right', 'Right'),
-    ('Both', 'Both'),
-]
-
-
 class Exercise(models.Model):
     name = models.CharField(_('name'), max_length=100)
     uses_bodyweight = models.BooleanField(_('uses bodyweight'), default=False)
-    equipment = models.ForeignKey('ClimbingEquipment', on_delete=models.CASCADE)
-    climbing_hold = models.ForeignKey('ClimbingHold', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -149,6 +139,12 @@ class ExerciseSet(models.Model):
     ]
 
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    equipment = models.ForeignKey('ClimbingEquipment', on_delete=models.CASCADE)
+    climbing_hold = models.ForeignKey('ClimbingHold', on_delete=models.CASCADE)
+    left_hand = models.ForeignKey('GripPosition', on_delete=models.SET_NULL, blank=True, null=True,
+                                  related_name='left_hand_grip_position')
+    right_hand = models.ForeignKey('GripPosition', on_delete=models.SET_NULL, blank=True, null=True,
+                                   related_name='right_hand_grip_position')
     user = models.ForeignKey('user.User', on_delete=models.CASCADE)
     hold_duration = models.FloatField(_('hold duration'), blank=True, null=True, help_text=_('in seconds'))
     weight = MeasurementField(_('weight'), measurement=Weight, unit_choices=WEIGHT_UNITS)
@@ -163,8 +159,17 @@ class ExerciseSet(models.Model):
             weight += self.user.userprofile.body_weight
         return weight
 
+    def clean(self):
+        super().clean()
+        if not self.left_hand and not self.right_hand:
+            raise ValidationError('At least one hand must be specified.')
+
+        if self.climbing_hold.climbing_equipment != self.equipment:
+            raise ValidationError(
+                {'climbing_hold': 'The selected climbing hold does not match the selected equipment.'})
+
     def __str__(self):
         rep_str = f"x{self.reps}" if self.reps > 1 else ""
         hold_duration_str = f" ({self.hold_duration}s)" if self.hold_duration else ""
         weight_str = f" ({self.total_weight()})" if self.total_weight() else ""
-        return f"{self.exercise.name} | {self.exercise.equipment.name} | {self.exercise.climbing_hold.name} | {rep_str}{hold_duration_str}{weight_str} - {self.effort}"
+        return f"{self.exercise.name} | {self.equipment.name} | {self.climbing_hold.name} | {rep_str}{hold_duration_str}{weight_str} - {self.effort}"
