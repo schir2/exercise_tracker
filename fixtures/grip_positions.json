@@ -1,0 +1,792 @@
+[
+  {
+    "model": "hold.gripposition",
+    "pk": 1,
+    "fields": {
+      "name": "3 Finger Drag (Front 3)",
+      "grip_type": 1,
+      "image": "",
+      "fingers": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 2,
+    "fields": {
+      "name": "3 Finger Drag (Back 3)",
+      "grip_type": 1,
+      "image": "",
+      "fingers": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 3,
+    "fields": {
+      "name": "4 Finger Drag",
+      "grip_type": 1,
+      "image": "",
+      "fingers": [
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 4,
+    "fields": {
+      "name": "2 Finger Drag (Front 2)",
+      "grip_type": 1,
+      "image": "",
+      "fingers": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 5,
+    "fields": {
+      "name": "2 Finger Drag (Middle 2)",
+      "grip_type": 1,
+      "image": "",
+      "fingers": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 6,
+    "fields": {
+      "name": "2 Finger Drag (Back 2)",
+      "grip_type": 1,
+      "image": "",
+      "fingers": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 7,
+    "fields": {
+      "name": "1 Finger Drag (Index)",
+      "grip_type": 1,
+      "image": "",
+      "fingers": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 8,
+    "fields": {
+      "name": "1 Finger Drag (Middle)",
+      "grip_type": 1,
+      "image": "",
+      "fingers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 9,
+    "fields": {
+      "name": "1 Finger Drag (Ring)",
+      "grip_type": 1,
+      "image": "",
+      "fingers": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 10,
+    "fields": {
+      "name": "1 Finger Drag (Pinky)",
+      "grip_type": 1,
+      "image": "",
+      "fingers": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 11,
+    "fields": {
+      "name": "3 Finger Half Crimp (Front 3)",
+      "grip_type": 2,
+      "image": "",
+      "fingers": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 12,
+    "fields": {
+      "name": "3 Finger Half Crimp (Back 3)",
+      "grip_type": 2,
+      "image": "",
+      "fingers": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 13,
+    "fields": {
+      "name": "4 Finger Half Crimp",
+      "grip_type": 2,
+      "image": "",
+      "fingers": [
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 14,
+    "fields": {
+      "name": "2 Finger Half Crimp (Front 2)",
+      "grip_type": 2,
+      "image": "",
+      "fingers": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 15,
+    "fields": {
+      "name": "2 Finger Half Crimp (Middle 2)",
+      "grip_type": 2,
+      "image": "",
+      "fingers": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 16,
+    "fields": {
+      "name": "2 Finger Half Crimp (Back 2)",
+      "grip_type": 2,
+      "image": "",
+      "fingers": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 17,
+    "fields": {
+      "name": "1 Finger Half Crimp (Index)",
+      "grip_type": 2,
+      "image": "",
+      "fingers": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 18,
+    "fields": {
+      "name": "1 Finger Half Crimp (Middle)",
+      "grip_type": 2,
+      "image": "",
+      "fingers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 19,
+    "fields": {
+      "name": "1 Finger Half Crimp (Ring)",
+      "grip_type": 2,
+      "image": "",
+      "fingers": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 20,
+    "fields": {
+      "name": "1 Finger Half Crimp (Pinky)",
+      "grip_type": 2,
+      "image": "",
+      "fingers": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 21,
+    "fields": {
+      "name": "3 Finger Full Crimp (Front 3)",
+      "grip_type": 3,
+      "image": "",
+      "fingers": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 22,
+    "fields": {
+      "name": "3 Finger Full Crimp (Back 3)",
+      "grip_type": 3,
+      "image": "",
+      "fingers": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 23,
+    "fields": {
+      "name": "4 Finger Full Crimp",
+      "grip_type": 3,
+      "image": "",
+      "fingers": [
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 24,
+    "fields": {
+      "name": "2 Finger Full Crimp (Front 2)",
+      "grip_type": 3,
+      "image": "",
+      "fingers": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 25,
+    "fields": {
+      "name": "2 Finger Full Crimp (Middle 2)",
+      "grip_type": 3,
+      "image": "",
+      "fingers": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 26,
+    "fields": {
+      "name": "2 Finger Full Crimp (Back 2)",
+      "grip_type": 3,
+      "image": "",
+      "fingers": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 27,
+    "fields": {
+      "name": "1 Finger Full Crimp (Index)",
+      "grip_type": 3,
+      "image": "",
+      "fingers": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 28,
+    "fields": {
+      "name": "1 Finger Full Crimp (Middle)",
+      "grip_type": 3,
+      "image": "",
+      "fingers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 29,
+    "fields": {
+      "name": "1 Finger Full Crimp (Ring)",
+      "grip_type": 3,
+      "image": "",
+      "fingers": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 31,
+    "fields": {
+      "name": "3 Finger Pinch (Front 3)",
+      "grip_type": 5,
+      "image": "",
+      "fingers": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 32,
+    "fields": {
+      "name": "3 Finger Pinch (Back 3)",
+      "grip_type": 5,
+      "image": "",
+      "fingers": [
+        1,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 33,
+    "fields": {
+      "name": "4 Finger Pinch",
+      "grip_type": 5,
+      "image": "",
+      "fingers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 34,
+    "fields": {
+      "name": "2 Finger Pinch (Front 2)",
+      "grip_type": 5,
+      "image": "",
+      "fingers": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 35,
+    "fields": {
+      "name": "2 Finger Pinch (Middle 2)",
+      "grip_type": 5,
+      "image": "",
+      "fingers": [
+        1,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 36,
+    "fields": {
+      "name": "2 Finger Pinch (Back 2)",
+      "grip_type": 5,
+      "image": "",
+      "fingers": [
+        1,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 37,
+    "fields": {
+      "name": "1 Finger Pinch (Index)",
+      "grip_type": 5,
+      "image": "",
+      "fingers": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 38,
+    "fields": {
+      "name": "1 Finger Pinch (Middle)",
+      "grip_type": 5,
+      "image": "",
+      "fingers": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 39,
+    "fields": {
+      "name": "1 Finger Pinch (Ring)",
+      "grip_type": 5,
+      "image": "",
+      "fingers": [
+        1,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 40,
+    "fields": {
+      "name": "1 Finger Pinch (Pinky)",
+      "grip_type": 5,
+      "image": "",
+      "fingers": [
+        1,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 30,
+    "fields": {
+      "name": "1 Finger Half Crimp (Pinky)",
+      "grip_type": 2,
+      "image": "",
+      "fingers": [
+        5
+      ]
+    }
+  },{
+    "model": "hold.gripposition",
+    "pk": 51,
+    "fields": {
+      "name": "3 Finger Jug (Front 3)",
+      "grip_type": 6,
+      "image": "",
+      "fingers": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 52,
+    "fields": {
+      "name": "3 Finger Jug (Back 3)",
+      "grip_type": 6,
+      "image": "",
+      "fingers": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 53,
+    "fields": {
+      "name": "4 Finger Jug",
+      "grip_type": 6,
+      "image": "",
+      "fingers": [
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 54,
+    "fields": {
+      "name": "2 Finger Jug (Front 2)",
+      "grip_type": 6,
+      "image": "",
+      "fingers": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 55,
+    "fields": {
+      "name": "2 Finger Jug (Middle 2)",
+      "grip_type": 6,
+      "image": "",
+      "fingers": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 56,
+    "fields": {
+      "name": "2 Finger Jug (Back 2)",
+      "grip_type": 6,
+      "image": "",
+      "fingers": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 57,
+    "fields": {
+      "name": "1 Finger Jug (Index)",
+      "grip_type": 6,
+      "image": "",
+      "fingers": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 58,
+    "fields": {
+      "name": "1 Finger Jug (Middle)",
+      "grip_type": 6,
+      "image": "",
+      "fingers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 59,
+    "fields": {
+      "name": "1 Finger Jug (Ring)",
+      "grip_type": 6,
+      "image": "",
+      "fingers": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 60,
+    "fields": {
+      "name": "1 Finger Jug (Pinky)",
+      "grip_type": 6,
+      "image": "",
+      "fingers": [
+        5
+      ]
+    }
+  },
+
+  {
+    "model": "hold.gripposition",
+    "pk": 41,
+    "fields": {
+      "name": "3 Finger Sloper (Front 3)",
+      "grip_type": 4,
+      "image": "",
+      "fingers": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 42,
+    "fields": {
+      "name": "3 Finger Sloper (Back 3)",
+      "grip_type": 4,
+      "image": "",
+      "fingers": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 43,
+    "fields": {
+      "name": "4 Finger Sloper",
+      "grip_type": 4,
+      "image": "",
+      "fingers": [
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 44,
+    "fields": {
+      "name": "2 Finger Sloper (Front 2)",
+      "grip_type": 4,
+      "image": "",
+      "fingers": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 45,
+    "fields": {
+      "name": "2 Finger Sloper (Middle 2)",
+      "grip_type": 4,
+      "image": "",
+      "fingers": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 46,
+    "fields": {
+      "name": "2 Finger Sloper (Back 2)",
+      "grip_type": 4,
+      "image": "",
+      "fingers": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 47,
+    "fields": {
+      "name": "1 Finger Sloper (Index)",
+      "grip_type": 4,
+      "image": "",
+      "fingers": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 48,
+    "fields": {
+      "name": "1 Finger Sloper (Middle)",
+      "grip_type": 4,
+      "image": "",
+      "fingers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 49,
+    "fields": {
+      "name": "1 Finger Sloper (Ring)",
+      "grip_type": 4,
+      "image": "",
+      "fingers": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "hold.gripposition",
+    "pk": 50,
+    "fields": {
+      "name": "1 Finger Sloper (Pinky)",
+      "grip_type": 4,
+      "image": "",
+      "fingers": [
+        5
+      ]
+    }
+  }
+]

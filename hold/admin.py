@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
-
-from hold.models import ClimbingHold, ClimbingEquipment, Exercise, ExerciseSet, Finger, ExerciseHandConfiguration, \
-    ExerciseSetHandConfiguration
+from django.utils.translation import gettext_lazy as _
+from hold.models import ClimbingHold, ClimbingEquipment, Exercise, ExerciseSet, Finger, GripPosition, GripType
 
 
 class ClimbingHoldInline(admin.TabularInline):  # You can also use admin.StackedInline for a different layout
@@ -33,30 +32,67 @@ class ClimbingHoldAdmin(admin.ModelAdmin):
     list_filter = ('hold_type',)
 
 
-class ExerciseHandConfigurationInline(admin.TabularInline):
-    model = ExerciseHandConfiguration
-    extra = 1
-    min_num = 1
-    max_num = 2
-
-
-class ExerciseSetHandConfigurationInline(admin.TabularInline):
-    model = ExerciseSetHandConfiguration
-    extra = 0
-
-
+@admin.register(Exercise)
 class ExerciseAdmin(admin.ModelAdmin):
-    inlines = [ExerciseHandConfigurationInline]
+    list_display = ('name', 'equipment', 'climbing_hold')
+    list_filter = ('equipment', 'climbing_hold')
+    search_fields = ('name', 'equipment__name', 'climbing_hold__name')
+    ordering = ('name',)
 
 
+@admin.register(ExerciseSet)
 class ExerciseSetAdmin(admin.ModelAdmin):
-    inlines = [ExerciseSetHandConfigurationInline]
+    list_display = ('exercise', 'user', 'reps', 'hold_duration', 'effort', 'total_weight')
+    list_filter = ('user', 'exercise__name')
+    search_fields = ('user__username', 'user__email', 'exercise__name')
+    ordering = ('-id',)
+
+    def display_fingers(self, obj):
+        left_fingers = [f.name for f in obj.exercise.finger_set.filter(hand='Left')]
+        right_fingers = [f.name for f in obj.exercise.finger_set.filter(hand='Right')]
+        return f"Left: {', '.join(left_fingers)}\nRight: {', '.join(right_fingers)}"
+
+    display_fingers.short_description = _('Fingers')
+
+    fieldsets = (
+        (_('Exercise and User'), {
+            'fields': ('exercise', 'user')
+        }),
+        (_('Exercise Details'), {
+            'fields': ('reps', 'hold_duration', 'weight', 'effort')
+        }),
+    )
 
 
+@admin.register(Finger)
 class FingerAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
 
-admin.site.register(Exercise, ExerciseAdmin)
-admin.site.register(ExerciseSet, ExerciseSetAdmin)
-admin.site.register(Finger, FingerAdmin)
+@admin.register(GripPosition)
+class GripPositionAdmin(admin.ModelAdmin):
+    list_display = ('name', 'fingers_used', 'finger_count', 'grip_type',)
+    ordering = ('grip_type',)
+    list_filter = ('grip_type', 'fingers',)
+    search_fields = ('name', 'fingers__name',)
+    filter_horizontal = ('fingers',)
+
+    fieldsets = (
+        (None, {'fields': ('name', 'fingers', 'grip_type', 'image',)}),
+    )
+
+    def fingers_used(self, obj):
+        return ", ".join([f.name.capitalize() for f in obj.fingers.all()])
+
+    def finger_count(self, obj):
+        return obj.fingers.count()
+
+    finger_count.short_description = 'Finger Count'
+    fingers_used.short_description = "Fingers Used"
+    fingers_used.admin_order_field = "fingers__name"
+
+
+@admin.register(GripType)
+class GripTypeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description')
+    search_fields = ('name', 'description')

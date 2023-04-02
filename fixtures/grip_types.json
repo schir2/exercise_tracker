@@ -1,0 +1,50 @@
+[
+  {
+    "model": "hold.griptype",
+    "pk": 1,
+    "fields": {
+      "name": "Drag Crimp",
+      "description": "A hold where the fingers are positioned in a crimp grip, but are dragged across the hold instead of pulling down."
+    }
+  },
+  {
+    "model": "hold.griptype",
+    "pk": 2,
+    "fields": {
+      "name": "Half Crimp",
+      "description": "A hold where the fingers are positioned in a crimp grip with the first joint bent at a 90 degree angle."
+    }
+  },
+  {
+    "model": "hold.griptype",
+    "pk": 3,
+    "fields": {
+      "name": "Full Crimp",
+      "description": "A hold where the fingers are positioned in a crimp grip with the second joint bent at a 90 degree angle."
+    }
+  },
+  {
+    "model": "hold.griptype",
+    "pk": 4,
+    "fields": {
+      "name": "Sloper",
+      "description": "A hold that is sloping downward, requiring an open hand grip."
+    }
+  },
+  {
+    "model": "hold.griptype",
+    "pk": 5,
+    "fields": {
+      "name": "Pinch",
+      "description": "A hold where the fingers are positioned on either side of the hold, pinching it."
+    }
+  },
+  {
+    "model": "hold.griptype",
+    "pk": 6,
+    "fields": {
+      "name": "Jug",
+      "description": "A large hold that can be gripped easily with the whole hand."
+    }
+  }
+]

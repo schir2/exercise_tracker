@@ -20,6 +20,47 @@ WEIGHT_UNITS = [
 ]
 
 
+class Finger(models.Model):
+    FINGER_CHOICES = [
+        ('thumb', _('Thumb')),
+        ('index', _('Index')),
+        ('middle', _('Middle')),
+        ('ring', _('Ring')),
+        ('pinky', _('Pinky')),
+    ]
+    name = models.CharField(max_length=10, choices=FINGER_CHOICES)
+
+    def __str__(self):
+        return self.name
+
+
+class GripType(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _('Grip Type')
+        verbose_name_plural = _('Grip Types')
+
+
+class GripPosition(models.Model):
+
+    name = models.CharField(max_length=50)
+    fingers = models.ManyToManyField(Finger, related_name='grip_positions')
+    grip_type = models.ForeignKey('GripType', on_delete=models.CASCADE)
+    image = models.ImageField(_('image'), upload_to='grip_positions/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _('Grip Position')
+        verbose_name_plural = _('Grip Positions')
+
+
 class ClimbingEquipment(models.Model):
     EQUIPMENT_TYPES = (
         ('HB', _('Hangboard')),
@@ -73,20 +114,6 @@ class ClimbingHold(models.Model):
         verbose_name_plural = _('climbing holds')
 
 
-class Finger(models.Model):
-    FINGER_CHOICES = [
-        ('thumb', _('Thumb')),
-        ('index', _('Index')),
-        ('middle', _('Middle')),
-        ('ring', _('Ring')),
-        ('pinky', _('Pinky')),
-    ]
-    name = models.CharField(max_length=10, choices=FINGER_CHOICES)
-
-    def __str__(self):
-        return self.name
-
-
 HAND_CHOICES = [
     ('Left', 'Left'),
     ('Right', 'Right'),
@@ -94,62 +121,18 @@ HAND_CHOICES = [
 ]
 
 
-class ExerciseSetHandConfiguration(models.Model):
-    exercise_set = models.ForeignKey('ExerciseSet', on_delete=models.CASCADE)
-    hand = models.CharField(max_length=10, choices=HAND_CHOICES)
-    fingers = models.ManyToManyField(Finger)
-
-    class Meta:
-        verbose_name_plural = 'Exercise Set Hand Configurations'
-
-    def __str__(self):
-        return f"{self.hand} - {', '.join([str(finger) for finger in self.fingers.all()])}"
-
-    def save(self, *args, **kwargs):
-        if self.exercise_set.exercisesethandconfiguration_set.count() >= 2:
-            raise ValidationError("You can associate at most two hands with an ExerciseSet.")
-        super().save(*args, **kwargs)
-
-
-class ExerciseHandConfiguration(models.Model):
-    exercise = models.ForeignKey('Exercise', on_delete=models.CASCADE)
-    hand = models.CharField(max_length=10, choices=HAND_CHOICES)
-    fingers = models.ManyToManyField('Finger')
-
-    def __str__(self):
-        return f"{self.hand} - {', '.join([str(finger) for finger in self.fingers.all()])}"
-
-    def save(self, *args, **kwargs):
-        if self.exercise.exercisehandconfiguration_set.count() >= 2:
-            raise ValidationError("You can associate at most two hands with an Exercise.")
-        super().save(*args, **kwargs)
-
-
-def copy_hand_configurations_to_exercise_set(exercise, exercise_set):
-    for exercise_hand_config in exercise.exercisehandconfiguration_set.all():
-        hand_config = ExerciseSetHandConfiguration(exercise_set=exercise_set, hand=exercise_hand_config.hand)
-        hand_config.save()
-        hand_config.fingers.set(exercise_hand_config.fingers.all())
-
-
-class ExerciseSetManager(models.Manager):
-    def create(self, *args, **kwargs):
-        exercise = kwargs['exercise']
-        exercise_set = super().create(*args, **kwargs)
-        copy_hand_configurations_to_exercise_set(exercise, exercise_set)
-        return exercise_set
-
-
 class Exercise(models.Model):
     name = models.CharField(_('name'), max_length=100)
     uses_bodyweight = models.BooleanField(_('uses bodyweight'), default=False)
+    equipment = models.ForeignKey('ClimbingEquipment', on_delete=models.CASCADE)
+    climbing_hold = models.ForeignKey('ClimbingHold', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = _('Exercise')
-        verbose_name_plural = _('Exercise')
+        verbose_name = _('exercise')
+        verbose_name_plural = _('exercises')
 
 
 class ExerciseSet(models.Model):
@@ -172,7 +155,7 @@ class ExerciseSet(models.Model):
     reps = models.PositiveIntegerField(_('reps'), default=1)
     effort = models.CharField(_('effort'), max_length=10, choices=EFFORT_CHOICES, default='M')
 
-    objects = ExerciseSetManager()
+    date = models.DateField(_('date'), auto_now_add=True)
 
     def total_weight(self):
         weight = self.weight
@@ -184,4 +167,4 @@ class ExerciseSet(models.Model):
         rep_str = f"x{self.reps}" if self.reps > 1 else ""
         hold_duration_str = f" ({self.hold_duration}s)" if self.hold_duration else ""
         weight_str = f" ({self.total_weight()})" if self.total_weight() else ""
-        return f"{self.exercise.name}{rep_str}{hold_duration_str}{weight_str} - {self.effort}"
+        return f"{self.exercise.name} | {self.exercise.equipment.name} | {self.exercise.climbing_hold.name} | {rep_str}{hold_duration_str}{weight_str} - {self.effort}"
